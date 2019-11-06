@@ -1,0 +1,34 @@
+restaurant-detail{
+    display: inline;
+}
+.restaurant-photo{
+    display: none;
+    list-style-type: none;
+}
+.photo-name{
+    text-align: center;
+}
+.thumb-Image{
+    margin-bottom: 2%;
+}
+.restaurant-overiew{
+    padding: 0%;
+}
+agm-map {
+    height: 90%; /* like this */
+    width: 140%;
+}
+.review-list-item{
+    list-style-type: none;
+    
+}
+@media only screen and (max-width: 575px) {
+    .restaurant-overiew{
+        margin-left: 4%;
+    }
+    .map-add{
+        height:200px;
+        width: 83%;
+        margin-right: 4%;
+    }
+}

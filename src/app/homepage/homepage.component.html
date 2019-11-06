@@ -1,0 +1,45 @@
+<div class = "homepage">
+    <nav class="navbar navbar-expand-md navbar-dark bg-danger ">
+        <a class="navbar-brand" href="#" style="color: whitesmoke">
+            Zomato-App
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <form class="form-inline ml-sm-auto">
+                <input class="form-control mr-sm-2 search-bar" type="search" [(ngModel)]="areaName" name="cityName"
+                    placeholder="City" aria-label="Search" spellcheck="false">
+                <br>
+                <button class="btn btn-outline bg-light my-2 my-sm-0" type="submit" (click) = "searchCityResult()">Search</button>
+            </form>
+        </div>
+    </nav>
+    <br>
+    <div class="container body-container">
+        <div class="search-container">
+            <form class="form-inline search-form">
+                <input class="search-box" type="text" placeholder="Search.." [(ngModel)] = "restaurantSearch" name="search">
+                <button class="res-search-button ml-auto" type="submit" (click) = "searchRestaurant()" ><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <br>
+        <div>
+            <h5>Near By Restaurants</h5>
+        </div>
+        <br>
+        <div class="container flexbox near-by-res " *ngIf="areaName">
+            <ul class="container-fluid row restaurant-list">
+                <li class="restaurant-detail-item col-lg-4 col-md-5 col-6 mr-auto" *ngFor="let restaurant of nearByRestaurants">
+                    <div class="restaurant-breif">
+                        <img src={{restaurant.restaurant.thumb}} alt="restaurant-img" class = "res-img" style="border: 1px solid black;">
+                        <p appResName><a class ="res-name" style="text-decoration: underline; margin-bottom: 0%;"><strong>{{restaurant.restaurant.name}}</strong></a></p>
+                        <p class="address" style="margin-bottom: 0%;">{{restaurant.restaurant.location.address}}</p>
+                        <p>{{restaurant.restaurant.cuisines}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

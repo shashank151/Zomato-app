@@ -1,0 +1,62 @@
+.search-container {
+    border: 1px solid grey;
+    width: 70%;
+    margin:auto;
+    height: 42px;
+}
+
+.search-box {
+    justify-content: center;
+    height: 40px;
+    width: 90%;
+    border: none;
+}
+
+.near-by-res{
+    display: flex;
+    justify-content: center;
+}
+
+.res-search-button {
+    background-color: white;
+    height: 40px;
+    border: none;
+    margin: auto;
+}
+
+.restaurant-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.restaurant-detail-item {
+    display: flexbox;
+    list-style-type: none;
+    width:30%;
+    margin-right: 2%;
+}
+
+.address {
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
+.restaurant-breif{
+    text-align: center;
+}
+
+@media only screen and (max-width: 478px) {
+   .res-img{
+       width:100%;
+   }
+   .search-container{
+    margin-left: 5%;   
+    width: 90%;
+   }
+   .search-box{
+       width: 85%;
+   }
+  }

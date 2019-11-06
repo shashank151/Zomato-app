@@ -1,0 +1,55 @@
+<div class="conatainer">
+    <nav class="navbar navbar-expand-md navbar-dark bg-danger ">
+        <a class="navbar-brand" href="#" style="color: whitesmoke">
+            Zomato-App
+        </a>
+    </nav>
+    <br>
+    <br>
+    <div class="container-fluid row restaurant-detail" *ngIf=(restaurantDetail)>
+        <div class="col-md-4 ml-md-3">
+            <div class="photo-name">
+                <img src={{restaurantDetail.thumb}} alt="thumb-Image" class="thumb-Image">
+                <h5>{{restaurantDetail.name}} <span
+                        class="badge badge-success">{{restaurantDetail.user_rating.aggregate_rating}}</span></h5>
+                <h6><i class="fas fa-map-marker-alt"></i> {{restaurantDetail.location.locality}}</h6>
+            </div>
+        </div>
+        <div class="col-md-7 mr-xs-auto ml-xs-2 restaurant-overiew">
+            <h5>Overview</h5>
+            <hr>
+            <div class="container-fluid row">
+                <div class="col-sm-6">
+                    <p style="margin-bottom: 0%;"><strong>Cuisines: </strong></p>
+                    <p>{{restaurantDetail.cuisines}}</p>
+                    <p style="margin-bottom: 0%;"><strong>Timings: </strong></p>
+                    <p>{{restaurantDetail.timings}}</p>
+                    <p style="margin-bottom: 0%;"><strong>Address: </strong></p>
+                    <p>{{restaurantDetail.location.address}}</p>
+                    <p style="margin-bottom: 0%;"><strong>Phone Numbers: </strong></p>
+                    <p>{{restaurantDetail.phone_numbers}}</p>
+                </div>
+                <div class="col-sm-5 ml-md-6 map-add" *ngIf="lat">
+                    <agm-map [latitude]="lat" [longitude]="lng">
+                        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                    </agm-map>
+                </div>
+            </div>
+            <hr style="width: 100%;">
+            <div class="reviews">
+                <h5>Reviews <span class="badge badge-danger">{{restaurantDetail.all_reviews_count}}</span></h5>
+                <ul class = "review-list">
+                    <li class="review-list-item" *ngFor="let review of restaurantReviews">
+                        <div *ngIf = "review.review.review_text">
+                            <p><strong>{{review.review.user.name}} </strong><span
+                                class="badge badge-success">{{review.review.rating}}</span></p>
+                            <p>{{review.review.review_text}}</p>
+                            <hr>
+                        </div>
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
